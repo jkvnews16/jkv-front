@@ -8,6 +8,12 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Righteous', cursive;
 font-family: 'Sacramento', cursive; */
 
+:root {
+  --lBlue: rgb(0, 170, 255);
+  --mBlue: rgb(1, 92, 171);
+  --dBlue: rgb(16, 32, 86);
+}
+
 html,
 body {
   padding: 0;
@@ -24,4 +30,26 @@ a {
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (max-width: 900px) {
+  .no-PC {
+    visibility: hidden !important;
+    display: none !important;
+  }
+  .no-mobile {
+    visibility: unset;
+    display: unset;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .no-PC {
+    visibility: unset;
+    display: unset;
+  }
+  .no-mobile {
+    visibility: hidden !important;
+    display: none !important;
+  }
 }

@@ -9,10 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.5",
+    "graphql": "^16.5.0",
+    "jquery": "^3.6.0",
+    "js-cookie": "^3.0.1",
+    "lottie-react": "^2.2.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-markdown": "^8.0.3",
+    "react-textfit": "^1.1.1",
+    "react-time": "^4.3.0",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "eslint": "8.16.0",
