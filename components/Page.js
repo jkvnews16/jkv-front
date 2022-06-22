@@ -1,9 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import Head from "next/head";
 
-export default function Page({ data }) {
+export default function Page({ data, page = "" }) {
   return (
     <div id={"page"}>
+      <Head>
+        <title>JKV News | {page}</title>
+        <meta name="description" content={"" + page + " news by JKV"} />
+      </Head>
       {data.map((element, index) => {
         return (
           <Link href={"/post/" + element.id} key={index}>

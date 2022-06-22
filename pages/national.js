@@ -11,7 +11,7 @@ import {
 import Page from "../components/Page";
 export default function National({ data }) {
   // console.log(data);
-  return <Page data={data} />;
+  return <Page data={data} page="National" />;
 }
 
 export async function getServerSideProps(prop) {

@@ -11,7 +11,7 @@ import {
 import Page from "../components/Page";
 export default function SnT({ data }) {
   // console.log(data);
-  return <Page data={data} />;
+  return <Page data={data} page="Sports & Technology" />;
 }
 
 export async function getServerSideProps(prop) {

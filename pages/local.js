@@ -11,7 +11,7 @@ import {
 import Page from "../components/Page";
 export default function Local({ data }) {
   // console.log(data);
-  return <Page data={data} />;
+  return <Page data={data} page="Local" />;
 }
 export async function getServerSideProps(prop) {
   var lan = String(prop.req.headers.cookie);

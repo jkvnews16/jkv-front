@@ -3,6 +3,7 @@ import apoClient from "../../components/graphQL/client";
 import ReactMarkdown from "react-markdown";
 import React, { useEffect } from "react";
 import dateFormat from "../../components/dateFormat";
+import Head from "next/head";
 
 function getPostQuery(id) {
   return gql`
@@ -33,6 +34,13 @@ export default function Post({ data }) {
   }, []);
   return (
     <div id="content">
+      <Head>
+        <title>JKV News | {data.Title}</title>
+        <meta
+          name="description"
+          content={"JKV News | " + data.Title + " by " + data.Author}
+        />
+      </Head>
       <div className="head">
         <div className="left-side img-container">
           <img src={data.Thumbnail.data.attributes.url || ""} alt="" />
