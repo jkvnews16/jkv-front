@@ -41,7 +41,7 @@ export default function Post({ data }) {
           <h1>{data.Title}</h1>
           <p>{"By " + data.Author}</p>
           <span>
-            {data.Date} | <span className="change-date">{nElem.date}</span>
+            <span className="change-date">{data.Date}</span>
           </span>
         </div>
       </div>
