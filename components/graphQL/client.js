@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-export const baseURL = "http://192.46.209.142:1337";
+export const baseURL = "https://jkvback.herokuapp.com";
 
 export const apoClient = new ApolloClient({
   uri: baseURL + "/graphql",

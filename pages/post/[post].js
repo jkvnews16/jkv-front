@@ -22,22 +22,12 @@ function getPostQuery(id) {
 }
 
 export default function Post({ data }) {
-  useEffect(() => {
-    var elems = document.querySelectorAll(".blog-content img");
-    elems.forEach((element) => {
-      let oldAttr = element.getAttribute("src");
-      element.setAttribute("src", "" + baseURL + "" + oldAttr);
-    });
-  }, []);
   console.log(data);
   return (
     <div id="content">
       <div className="head">
         <div className="left-side img-container">
-          <img
-            src={baseURL + data.Thumbnail.data.attributes.url || ""}
-            alt=""
-          />
+          <img src={data.Thumbnail.data.attributes.url || ""} alt="" />
         </div>
         <div className="right-side text-container">
           <h1>{data.Title}</h1>

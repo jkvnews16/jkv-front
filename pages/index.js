@@ -14,15 +14,18 @@ import apoClient from "../components/graphQL/client";
 import { getEnglishAll } from "../components/graphQL/english";
 import { getHindiAll } from "../components/graphQL/hindi";
 import { getMarathiAll } from "../components/graphQL/marathi";
+import dateFormat from "../components/dateFormat";
+import { useEffect } from "react";
 
 export default function Home({ engData, hinData, marData }) {
-  // const tmp =
-  //   "https://static01.nyt.com/images/2021/02/07/fashion/NEW-BLUE-1/NEW-BLUE-1-superJumbo.jpg";
-  // engData.crime.forEach((elem) => {
-  //   console.log(elem.attributes.Title);
-  // });
-  // console.log(engData);
-  console.log(engData.local[0]);
+  useEffect(() => {
+    var elems = document.querySelectorAll("#change-date");
+    elems.forEach((elem) => {
+      console.log(elem.innerHTML);
+      var temp = dateFormat(elem.innerHTML);
+      elem.innerHTML = temp;
+    });
+  }, []);
   const data = [
     {
       name: "HINDI NEWS",
@@ -154,7 +157,7 @@ export default function Home({ engData, hinData, marData }) {
       ],
     },
   ];
-  console.log(data[0].news[0].id);
+  // console.log(data[0].news[0].id);
   return (
     <div id="home">
       <Head>
@@ -165,19 +168,18 @@ export default function Home({ engData, hinData, marData }) {
           <div className={elem.name.toLowerCase() + " card_" + indx} key={indx}>
             <div className="left-side">
               {elem.news.map((nElem, nIndx) => {
+                // var temp = dateFormat(nElem.genre, nElem.date);
                 return (
                   <Link key={nIndx} href={"/post/" + nElem.id}>
                     <a className={"sub-news-card nCard_" + nIndx}>
                       <div className="nLeft-side img-container">
-                        <img
-                          src={"http://192.46.209.142:1337" + nElem.thumbnail}
-                          alt=""
-                        />
+                        <img src={nElem.thumbnail} alt="" />
                       </div>
                       <div className="nRight-side">
                         <h2>{nElem.title}</h2>
                         <span>
-                          {nElem.genre} | {nElem.date}
+                          {nElem.genre + " | "}
+                          <span id="change-date">{nElem.date}</span>
                         </span>
                       </div>
                     </a>

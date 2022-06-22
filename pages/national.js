@@ -1,39 +1,19 @@
 import React from "react";
 import Link from "next/link";
 
-import apoClient, { baseURL } from "../components/graphQL/client";
+import apoClient from "../components/graphQL/client";
 import {
   getNationalEnglish,
   getNationalHindi,
   getNationalMarathi,
 } from "../components/graphQL/national";
 
-export default function Local({ data }) {
+import Page from "../components/Page";
+export default function National({ data }) {
   // console.log(data);
-  return (
-    <div id={"page"}>
-      {data.map((element, index) => {
-        return (
-          <Link href={"/post/" + element.id} key={index}>
-            <a className={"news-article card_" + index}>
-              <div className="img-container">
-                <img
-                  src={
-                    baseURL + element.attributes.Thumbnail.data.attributes.url
-                  }
-                  alt=""
-                />
-              </div>
-              <div className="text-container">
-                <h2>{element.attributes.Title}</h2>
-              </div>
-            </a>
-          </Link>
-        );
-      })}
-    </div>
-  );
+  return <Page data={data} />;
 }
+
 export async function getServerSideProps(prop) {
   var lan = String(prop.req.headers.cookie);
   lan = lan.substring(lan.indexOf("=") + 1);
