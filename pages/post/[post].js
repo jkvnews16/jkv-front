@@ -1,7 +1,8 @@
 import { gql } from "@apollo/client";
-import apoClient, { baseURL } from "../../components/graphQL/client";
+import apoClient from "../../components/graphQL/client";
 import ReactMarkdown from "react-markdown";
 import React, { useEffect } from "react";
+import dateFormat from "../../components/dateFormat";
 
 function getPostQuery(id) {
   return gql`
@@ -22,7 +23,14 @@ function getPostQuery(id) {
 }
 
 export default function Post({ data }) {
-  console.log(data);
+  useEffect(() => {
+    var elems = document.querySelectorAll(".change-date");
+    elems.forEach((elem) => {
+      console.log(elem.innerHTML);
+      var temp = dateFormat(elem.innerHTML);
+      elem.innerHTML = temp;
+    });
+  }, []);
   return (
     <div id="content">
       <div className="head">
@@ -33,7 +41,7 @@ export default function Post({ data }) {
           <h1>{data.Title}</h1>
           <p>{"By " + data.Author}</p>
           <span>
-            {data.Date} | {data.Date}
+            {data.Date} | <span className="change-date">{nElem.date}</span>
           </span>
         </div>
       </div>

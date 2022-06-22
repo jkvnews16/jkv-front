@@ -19,7 +19,7 @@ import { useEffect } from "react";
 
 export default function Home({ engData, hinData, marData }) {
   useEffect(() => {
-    var elems = document.querySelectorAll("#change-date");
+    var elems = document.querySelectorAll(".change-date");
     elems.forEach((elem) => {
       console.log(elem.innerHTML);
       var temp = dateFormat(elem.innerHTML);
@@ -179,7 +179,7 @@ export default function Home({ engData, hinData, marData }) {
                         <h2>{nElem.title}</h2>
                         <span>
                           {nElem.genre + " | "}
-                          <span id="change-date">{nElem.date}</span>
+                          <span className="change-date">{nElem.date}</span>
                         </span>
                       </div>
                     </a>
